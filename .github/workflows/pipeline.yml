@@ -1,0 +1,24 @@
+# Name of your workflow
+name: Android Build and Deployment Pipeline
+# Define on which Github event, workflow will trigger
+on:
+  push:
+    branches: [ master ]
+jobs:
+  job1:
+    name: Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code to specific branch
+        uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '20'
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+      - name: Generate app bundle.
+        run: ./gradlew app:bundleRelease --stacktrace
