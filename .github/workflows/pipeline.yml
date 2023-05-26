@@ -18,6 +18,14 @@ jobs:
           java-version: '20'
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
       - name: Make gradlew executable
         run: chmod +x ./gradlew
       - name: Generate app bundle.
