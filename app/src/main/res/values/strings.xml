@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Lab3_2 Solution</string>
+
+    <string name="tourX">Statut: C\'est le tour des "X"</string>
+    <string name="tourO">Statut: C\'est le tour des "O"</string>
+    <string name="tourTermine">Statut: C\'est terminé</string>
+    <string name="recommencer">Recommencer</string>
+    <string name="titre">Jeu de TicTacToe</string>
+</resources>
